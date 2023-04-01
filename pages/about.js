@@ -4,7 +4,6 @@ import Background1 from "../assets/background1.jpg";
 import logo from "../public/logo.svg";
 import Line from "../public/Line.svg";
 import { useState } from "react";
-import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,29 +29,26 @@ export default function Home() {
         className="-z-10 absolute h-screen object-center object-cover "
       />
       <div className="h-screen max-h-screen">
-        <Link href="/">
-          <Image
-            src={logo}
-            alt="logo"
-            className="absolute top-[3%] left-[1.5%] w-[14%]"
-          />
-        </Link>
+        <Image
+          src={logo}
+          alt="logo"
+          className="absolute top-[3%] left-[1.5%] w-[14%]"
+        />
         <div className="absolute top-[30px] right-[30px] text-[3vw] text-white">
           <nav className="flex items-center flex-col">
             <Image src={Line} alt="line" className="w-[0.2vw]" />
-            <Link href="/about" className="mt-2 mb-2 ">
-              About
-            </Link>
+            <p className="mt-2 mb-2 ">About</p>
             <Image src={Line} alt="line" className="w-[0.2vw]" />
-            <Link href="/contact" className="mt-2 mb-2">
-              Contact
-            </Link>
+            <p className="mt-2 mb-2">Contact</p>
             <Image src={Line} alt="line" className="w-[0.2vw]" />
           </nav>
         </div>
         <div className="absolute top-[30%] left-[10%] text-white pointer-events-none">
-          <h1 className="text-[13vw]">Go behond the superficial</h1>
-          <h2 className="text-[7vw] mt-[3%]">See for yourself</h2>
+          <h1 className="text-[13vw]">We are rsvd, a team of keen designers</h1>
+          <h2 className="text-[7vw] mt-[3%]">
+            rsvd is a ground breaking design agency composed of those
+            professionals under the cards.
+          </h2>
         </div>
         <div className="flex flex-wrap min-h-screen -z-10">
           {tiles.map((tile) => (
