@@ -1,18 +1,47 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import Background1 from "../assets/background1.jpg";
+import Employee1 from "../assets/employee1.png";
+import Employee2 from "../assets/employee2.jpg";
+import Employee3 from "../assets/employee3.jpg";
+import Employee4 from "../assets/employee4.jpg";
+import Employee5 from "../assets/employee5.jpg";
+import Employee6 from "../assets/employee6.jpg";
+import Employee7 from "../assets/employee7.jpg";
 import logo from "../public/logo.svg";
 import Line from "../public/Line.svg";
 import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
-  const [hoveredTiles, setHoveredTiles] = useState([]);
+export default function About() {
+  const [hoveredTiles, setHoveredTiles] = useState([{}]);
 
   const tiles = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25,
+    { title: "", image: "" },
+    { title: "CEO", image: Employee1 },
+    { title: "Vice-CEO", image: Employee2 },
+    { title: "Product manager", image: Employee3 },
+    { title: "", image: "" },
+    { title: "", image: "" },
+    { title: "", image: "" },
+    { title: "", image: "" },
+    { title: "", image: "" },
+    { title: "", image: "" },
+    { title: "", image: "" },
+    { title: "", image: "" },
+    { title: "", image: "" },
+    { title: "", image: "" },
+    { title: "", image: "" },
+    { title: "Designer", image: Employee4 },
+    { title: "Designer", image: Employee5 },
+    { title: "", image: "" },
+    { title: "", image: "" },
+    { title: "", image: "" },
+    { title: "Product manager", image: Employee6 },
+    { title: "Designer", image: Employee7 },
+    { title: "Human ressources", image: "" },
+    { title: "Assistant Designer", image: "" },
+    { title: "Assistant Designer", image: "" },
   ];
 
   const handleMouseEnter = (tile) => {
@@ -21,13 +50,6 @@ export default function Home() {
 
   return (
     <>
-      <Image
-        src={Background1}
-        alt="background"
-        height={3000}
-        width={3000}
-        className="-z-10 absolute h-screen object-center object-cover "
-      />
       <div className="h-screen max-h-screen">
         <Image
           src={logo}
@@ -45,7 +67,7 @@ export default function Home() {
         </div>
         <div className="absolute top-[30%] left-[10%] text-white pointer-events-none">
           <h1 className="text-[13vw]">We are rsvd, a team of keen designers</h1>
-          <h2 className="text-[7vw] mt-[3%]">
+          <h2 className="text-[7vw] mt-[3%] ml-[34%]">
             rsvd is a ground breaking design agency composed of those
             professionals under the cards.
           </h2>
@@ -55,21 +77,37 @@ export default function Home() {
             <div
               key={tile}
               onMouseEnter={() => handleMouseEnter(tile)}
-              className={`${
-                hoveredTiles.includes(tile)
-                  ? "bg-transparent transition-all duration-500"
-                  : "bg-[#443E3E]"
-              } border-[#C7C3C3] border-b-[2px] border-r-[2px] min-h-[10vh] w-[20vw]`}
-              style={{
-                ...(tile % 5 === 0
-                  ? { borderRight: "none" }
-                  : { borderRight: "2px solid #C7C3C3" }),
+              className=" bg-[#443E3E] border-[#C7C3C3] border-b-[2px] border-r-[2px] h-[40vh] w-[20vw]"
+            >
+              <div className="text-center mt-2 absolute text-white text-[2vw] w-[20%]">
+                <div className="flex justify-center">
+                  <p
+                    className={`${
+                      hoveredTiles.includes(tile.title) ? "flex " : "hidden"
+                    }`}
+                  >
+                    {tile.title}
+                  </p>
+                </div>
+              </div>
 
-                ...(tiles.indexOf(tile) >= 20
-                  ? { borderBottom: "none" }
-                  : { borderBottom: "2px solid #C7C3C3" }),
-              }}
-            ></div>
+              {tile.image !== "" ? (
+                <Image
+                  src={tile.image}
+                  alt="image"
+                  width={3000}
+                  height={3000}
+                  className={`${
+                    hoveredTiles.includes(tile)
+                      ? "flex object-cover object-center border-b-[2px]"
+                      : "hidden"
+                  }`}
+                  style={{ height: "inherit" }}
+                />
+              ) : (
+                <div></div>
+              )}
+            </div>
           ))}
         </div>
       </div>
