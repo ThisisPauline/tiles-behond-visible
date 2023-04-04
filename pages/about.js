@@ -91,8 +91,8 @@ export default function About() {
             We are rsvd, a team of keen designers
           </h1>
           <h2 className="text-[7vw] mt-[3%] ml-[34%]">
-            rsvd is a ground breaking design agency composed of those
-            professionals under the cards.
+            rsvd is a pioneering design agency made up of the industry&apos;s
+            top professionals.
           </h2>
         </div>
         <div className="flex flex-wrap min-h-screen ">
