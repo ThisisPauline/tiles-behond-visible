@@ -15,6 +15,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function About() {
   const [hoveredTiles, setHoveredTiles] = useState([]);
+  const [TilesAlreadyHovered, setTilesAlreadyHovered] = useState([]);
 
   const tiles = [
     { key: 1, title: "", image: "" },
@@ -47,7 +48,10 @@ export default function About() {
   const handleMouseEnter = (tile) => {
     console.log(tile);
     setHoveredTiles((prevState) => [...prevState, tile]);
+    setTilesAlreadyHovered((prevState) => [...prevState, tile.key]);
   };
+
+  console.log(TilesAlreadyHovered);
 
   return (
     <>
@@ -68,7 +72,9 @@ export default function About() {
         </div>
 
         <div className="absolute top-[30%] left-[10%] text-white pointer-events-none">
-          <h1 className="text-[13vw]">We are rsvd, a team of keen designers</h1>
+          <h1 className="text-[13vw] pointer-events-none">
+            We are rsvd, a team of keen designers
+          </h1>
           <h2 className="text-[7vw] mt-[3%] ml-[34%]">
             rsvd is a ground breaking design agency composed of those
             professionals under the cards.
@@ -81,7 +87,7 @@ export default function About() {
                 key={tile.key}
                 onMouseEnter={() => handleMouseEnter(tile)}
                 className={`${
-                  hoveredTiles.includes(tile)
+                  TilesAlreadyHovered.includes(tile.key) && tile.image !== ""
                     ? "bg-transparent transition-all duration-500"
                     : "bg-[#443E3E]"
                 } border-[#C7C3C3] border-b-[2px] border-r-[2px] h-[40vh] w-[20vw]`}
@@ -93,7 +99,7 @@ export default function About() {
           <div className="flex flex-wrap">
             {tiles.map((tile) => (
               <div
-                key={tile}
+                key={tile.key}
                 className="  border-[#C7C3C3] border-b-[2px] border-r-[2px] h-[40vh] w-[20vw]"
               >
                 <div className="absolute text-white">
