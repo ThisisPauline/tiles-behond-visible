@@ -14,6 +14,7 @@ import Employee11 from "../assets/employee11.jpg";
 import Employee12 from "../assets/employee12.jpg";
 import logo from "../public/logo.svg";
 import Line from "../public/Line.svg";
+import Link from "next/link";
 import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -50,6 +51,12 @@ export default function About() {
     { key: 25, title: "Assistant Designer", image: Employee10 },
   ];
 
+  if (typeof window !== "undefined") {
+    if (window.innerWidth < 1021) {
+      tiles.splice(9, 5);
+    }
+  }
+
   const handleMouseEnter = (tile) => {
     setHoveredTiles((prevState) => [...prevState, tile]);
     setTilesAlreadyHovered((prevState) => [...prevState, tile.key]);
@@ -58,17 +65,23 @@ export default function About() {
   return (
     <>
       <div className="h-screen max-h-screen">
-        <Image
-          src={logo}
-          alt="logo"
-          className="absolute top-[3%] left-[1.5%] w-[14%]"
-        />
+        <Link href="/">
+          <Image
+            src={logo}
+            alt="logo"
+            className="absolute top-[3%] left-[1.5%] w-[14%]"
+          />
+        </Link>
         <div className="absolute top-[30px] right-[30px] text-[3vw] text-white">
           <nav className="flex items-center flex-col">
             <Image src={Line} alt="line" className="w-[0.2vw]" />
-            <p className="mt-2 mb-2 ">About</p>
+            <Link href="/about" className="mt-2 mb-2 ">
+              About
+            </Link>
             <Image src={Line} alt="line" className="w-[0.2vw]" />
-            <p className="mt-2 mb-2">Contact</p>
+            <Link href="/contact" className="mt-2 mb-2">
+              Contact
+            </Link>
             <Image src={Line} alt="line" className="w-[0.2vw]" />
           </nav>
         </div>
@@ -92,7 +105,20 @@ export default function About() {
                   TilesAlreadyHovered.includes(tile.key) && tile.image !== ""
                     ? "bg-transparent transition-all duration-500"
                     : "bg-[#443E3E]"
-                } border-[#C7C3C3] border-b-[2px] border-r-[2px] h-[40vh] w-[20vw]`}
+                } border-[#C7C3C3] border-b-[2px] last:border-b-[0px] border-r-[2px] h-[40vh] w-[20vw]`}
+                style={{
+                  ...(tile.key % 5 === 0
+                    ? { borderRight: "none" }
+                    : { borderRight: "2px solid #C7C3C3" }),
+
+                  ...(tile.key === 21 ||
+                  tile.key === 22 ||
+                  tile.key === 23 ||
+                  tile.key === 24 ||
+                  tile.key === 25
+                    ? { borderBottom: "none" }
+                    : { borderBottom: "2px solid #C7C3C3" }),
+                }}
               ></div>
             ))}
           </div>
@@ -103,6 +129,11 @@ export default function About() {
               <div
                 key={tile.key}
                 className="  border-[#C7C3C3] border-b-[2px] border-r-[2px] h-[40vh] w-[20vw]"
+                style={{
+                  ...(tile.key % 5 === 0
+                    ? { borderRight: "none" }
+                    : { borderRight: "2px solid #C7C3C3" }),
+                }}
               >
                 <div className="absolute text-white">
                   <div className="flex justify-center w-[20vw]">
