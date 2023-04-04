@@ -7,6 +7,11 @@ import Employee4 from "../assets/employee4.jpg";
 import Employee5 from "../assets/employee5.jpg";
 import Employee6 from "../assets/employee6.jpg";
 import Employee7 from "../assets/employee7.jpg";
+import Employee8 from "../assets/employee8.jpg";
+import Employee9 from "../assets/employee9.jpg";
+import Employee10 from "../assets/employee10.jpg";
+import Employee11 from "../assets/employee11.jpg";
+import Employee12 from "../assets/employee12.jpg";
 import logo from "../public/logo.svg";
 import Line from "../public/Line.svg";
 import { useState } from "react";
@@ -20,7 +25,7 @@ export default function About() {
   const tiles = [
     { key: 1, title: "", image: "" },
     { key: 2, title: "CEO", image: Employee1 },
-    { key: 3, title: "Vice-CEO", image: Employee2 },
+    { key: 3, title: "Vice-CEO", image: Employee11 },
     { key: 4, title: "Product manager", image: Employee3 },
     { key: 5, title: "", image: "" },
     { key: 6, title: "", image: "" },
@@ -28,30 +33,27 @@ export default function About() {
     { key: 8, title: "", image: "" },
     { key: 9, title: "", image: "" },
     { key: 10, title: "", image: "" },
-    { key: 11, title: "", image: "" },
-    { key: 12, title: "", image: "" },
+    { key: 11, title: "Designer", image: "" },
+    { key: 12, title: "Designer", image: "" },
     { key: 13, title: "", image: "" },
     { key: 14, title: "", image: "" },
     { key: 15, title: "", image: "" },
-    { key: 16, title: "Designer", image: Employee4 },
+    { key: 16, title: "Designer", image: Employee12 },
     { key: 17, title: "Designer", image: Employee5 },
     { key: 18, title: "", image: "" },
     { key: 19, title: "", image: "" },
     { key: 20, title: "", image: "" },
     { key: 21, title: "Product manager", image: Employee6 },
     { key: 22, title: "Designer", image: Employee7 },
-    { key: 23, title: "Human ressources", image: "" },
-    { key: 24, title: "Assistant Designer", image: "" },
-    { key: 25, title: "Assistant Designer", image: "" },
+    { key: 23, title: "Human ressources", image: Employee8 },
+    { key: 24, title: "Assistant Designer", image: Employee9 },
+    { key: 25, title: "Assistant Designer", image: Employee10 },
   ];
 
   const handleMouseEnter = (tile) => {
-    console.log(tile);
     setHoveredTiles((prevState) => [...prevState, tile]);
     setTilesAlreadyHovered((prevState) => [...prevState, tile.key]);
   };
-
-  console.log(TilesAlreadyHovered);
 
   return (
     <>
@@ -103,7 +105,11 @@ export default function About() {
                 className="  border-[#C7C3C3] border-b-[2px] border-r-[2px] h-[40vh] w-[20vw]"
               >
                 <div className="absolute text-white">
-                  <p className="align-center"> {tile.title}</p>
+                  <div className="flex justify-center w-[20vw]">
+                    <p className="align-center mt-2 text-[1.5vw]">
+                      {tile.title}
+                    </p>
+                  </div>
                 </div>
                 {tile.image !== "" ? (
                   <Image
