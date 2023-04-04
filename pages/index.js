@@ -17,6 +17,7 @@ export default function Home() {
   ];
 
   const handleMouseEnter = (tile) => {
+    console.log(tile);
     setHoveredTiles((prevState) => [...prevState, tile]);
   };
 
