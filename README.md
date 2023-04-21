@@ -25,7 +25,7 @@ To run the RSVD website locally, follow these steps:
 ## Contributing
 If you're interested in contributing to the RSVD website, feel free to fork the repository, create a branch, make your changes, and submit a pull request. We welcome contributions and feedback!
 
-11 Credits
+## Credits
 The RSVD website is a personal project created by Pauline Kraus. It is powered by Next.js and Tailwind, and incorporates various open-source libraries and technologies.
 
 ## License
