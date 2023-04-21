@@ -1,6 +1,6 @@
 ![rsvd websites](https://i.imgur.com/pBDKL9a.jpg)
 
-# rsvd 
+# Introduction
 The rsvd website is a personal project that showcases a fictional design agency powered by Next.js and Tailwind. The website features a modern design and interactive tiles that allow visitors to explore and engage with rsvd's artistic vision.
 
 ## Features
